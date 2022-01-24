@@ -1,12 +1,24 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/budget">Budget</router-link>
-  </div>
-  <router-view />
+  <LeftMenu />
 </template>
 
+<script>
+import LeftMenu from "@/components/LeftMenu";
+
+export default {
+  name: "App",
+  components: {
+    LeftMenu,
+  },
+};
+</script>
+
 <style lang="scss">
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
