@@ -5,13 +5,19 @@
   >
     <el-aside width="200px" style="background-color: rgb(238, 241, 246); height: 100vh;">
       <el-scrollbar>
-        <el-menu :default-openeds="[]">
+        <el-menu :default-openeds="[]" style="height: 100vh;">
           <el-menu index="1">
-            <el-icon><message /></el-icon><router-link to="/">Home</router-link>
+            <el-icon>
+              <message />
+            </el-icon>
+            <router-link to="/">Home</router-link>
           </el-menu>
           <el-menu index="2">
-            <el-icon><setting /></el-icon
-            ><router-link to="/budget">Budget</router-link>
+            <el-icon>
+              <setting />
+            </el-icon
+            >
+            <router-link to="/budget">Budget</router-link>
           </el-menu>
         </el-menu>
       </el-scrollbar>
@@ -23,8 +29,13 @@
 
 <script>
 export default {
-  name: "LeftMenu",
+  name: "LeftMenu"
 };
 </script>
 
-<style scoped></style>
+<style>
+.el-menu {
+  display: flex;
+  flex-direction: column;
+}
+</style>

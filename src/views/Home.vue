@@ -1,9 +1,8 @@
 <template>
   <div class="home">
     <div class="container">
-      <div>Add todo:</div>
       <el-button @click="dialogVisible = true" type="primary"
-      >Primary
+        >Add todo
       </el-button>
       <ol>
         <li v-for="todo in todos" :key="todo.text">
@@ -18,11 +17,14 @@
       :before-close="handleClose"
     >
       <span>Add new todo</span>
+      <el-input v-model="input" placeholder="Please input" clearable />
       <template #footer>
-      <span class="dialog-footer">
-        <el-button @click="dialogVisible = false">Cancel</el-button>
-        <el-button type="primary" @click="NotificationSuccessful">Confirm</el-button>
-      </span>
+        <span class="dialog-footer">
+          <el-button @click="dialogVisible = false">Cancel</el-button>
+          <el-button type="primary" @click="NotificationSuccessful"
+            >Confirm</el-button
+          >
+        </span>
       </template>
     </el-dialog>
   </div>
@@ -38,10 +40,10 @@ export default {
       todos: [
         { text: "Learn JavaScript" },
         { text: "Learn Vue" },
-        { text: "Build something awesome" }
+        { text: "Build something awesome" },
       ],
-      dialogVisible: false
-
+      dialogVisible: false,
+      input: ""
     };
   },
   methods: {
@@ -52,10 +54,16 @@ export default {
       this.dialogVisible = false;
       ElNotification({
         title: "Success",
-        message: "This is a success message",
-        type: "success"
+        message: "Your entry has been added to there",
+        type: "success",
       });
-    }
-  }
+    },
+  },
 };
 </script>
+
+<style>
+ol > li {
+  text-align: left;
+}
+</style>
